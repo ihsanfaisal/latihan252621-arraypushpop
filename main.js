@@ -74,3 +74,23 @@ function edit() {
     document.getElementById("nomor").value = ""
     document.getElementById("hargaedit").value = ""
 }
+
+// fungsi untuk menghapus barang berdasarkan nomor barang
+function hapusNomor() {
+    // ubah nomor barang menjadi index array dengan mengurangi 1
+    let index = Number(document.getElementById("nomorHapus").value) - 1
+
+    // periksa apakah index valid
+    if (index >= 0 && index < dataBarang.length) {
+        // hapus barang dari array dataBarang menggunakan splice
+        dataBarang.splice(index, 1)
+    } else {
+        // jika nomor barang tidak valid, tampilkan alert
+        alert("Nomor barang tidak valid")
+    }
+
+    tampilkan()
+
+    // kosongkan input nomor hapus setelah dihapus
+    document.getElementById("nomorHapus").value = ""
+}
